@@ -1,0 +1,415 @@
+[gd_scene load_steps=16 format=3 uid="uid://bm40maqneabiv"]
+
+[ext_resource type="Texture2D" uid="uid://c576rhjpu7lx8" path="res://textures/home.png" id="1_4yjie"]
+[ext_resource type="Script" path="res://library/library.gd" id="1_ylvkg"]
+[ext_resource type="Texture2D" uid="uid://bb8ibyijv6q4k" path="res://textures/categories.png" id="2_ftaxh"]
+[ext_resource type="Texture2D" uid="uid://crvqe2n43wcuj" path="res://textures/applelogo.svg" id="3_g08oi"]
+[ext_resource type="Texture2D" uid="uid://cttdxq2ift1ny" path="res://textures/play_time.png" id="4_fjl0w"]
+[ext_resource type="Texture2D" uid="uid://ckpqho8x60m0b" path="res://textures/ready.png" id="5_5nvk7"]
+[ext_resource type="Texture2D" uid="uid://c4n21f1yvxf7n" path="res://textures/install_icon.png" id="6_cef0q"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q0oiv"]
+content_margin_left = 6.0
+content_margin_top = 2.0
+content_margin_right = 6.0
+content_margin_bottom = 2.0
+texture = ExtResource("1_4yjie")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fs3ua"]
+content_margin_left = 6.0
+content_margin_top = 4.0
+content_margin_right = 6.0
+content_margin_bottom = 4.0
+bg_color = Color(0.145098, 0.160784, 0.188235, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xsbs2"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.180392, 0.192157, 0.211765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pkwv1"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ppso2"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_enc0q"]
+bg_color = Color(0.25098, 0.282353, 0.321569, 1)
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fciu"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rgf4"]
+draw_center = false
+
+[node name="Library" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_ylvkg")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HomeBar" type="PanelContainer" parent="HSplitContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/VBoxContainer/HomeBar"]
+layout_mode = 2
+
+[node name="Home" type="Button" parent="HSplitContainer/VBoxContainer/HomeBar/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(2.08165e-12, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxTexture_q0oiv")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_q0oiv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_q0oiv")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_q0oiv")
+theme_override_styles/normal = SubResource("StyleBoxTexture_q0oiv")
+text = "HOME"
+alignment = 0
+
+[node name="Collections" type="TextureButton" parent="HSplitContainer/VBoxContainer/HomeBar/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture_normal = ExtResource("2_ftaxh")
+texture_pressed = ExtResource("2_ftaxh")
+texture_hover = ExtResource("2_ftaxh")
+texture_disabled = ExtResource("2_ftaxh")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="GamesPanel" type="PanelContainer" parent="HSplitContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_fs3ua")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/VBoxContainer/GamesPanel"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/VBoxContainer/GamesPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="OptionButton" type="OptionButton" parent="HSplitContainer/VBoxContainer/GamesPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 4
+popup/item_0/text = "GAMES"
+popup/item_1/text = "SOUNDTRACKS"
+popup/item_1/id = 1
+popup/item_2/text = "SOFTWARE"
+popup/item_2/id = 2
+popup/item_3/text = "TOOLS"
+popup/item_3/id = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/VBoxContainer/GamesPanel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/VBoxContainer/GamesPanel/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="OSOnly" type="TextureButton" parent="HSplitContainer/VBoxContainer/GamesPanel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(0.458824, 0.458824, 0.458824, 1)
+texture_filter = 4
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+texture_normal = ExtResource("3_g08oi")
+texture_pressed = ExtResource("3_g08oi")
+texture_hover = ExtResource("3_g08oi")
+texture_disabled = ExtResource("3_g08oi")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="PlayTime" type="TextureButton" parent="HSplitContainer/VBoxContainer/GamesPanel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+texture_normal = ExtResource("4_fjl0w")
+texture_pressed = ExtResource("4_fjl0w")
+texture_hover = ExtResource("4_fjl0w")
+texture_disabled = ExtResource("4_fjl0w")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ReadyOnly" type="TextureButton" parent="HSplitContainer/VBoxContainer/GamesPanel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+texture_normal = ExtResource("5_5nvk7")
+texture_pressed = ExtResource("5_5nvk7")
+texture_hover = ExtResource("5_5nvk7")
+texture_disabled = ExtResource("5_5nvk7")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Spacer" type="Control" parent="HSplitContainer/VBoxContainer/GamesPanel/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 6)
+layout_mode = 2
+
+[node name="SearchBar" type="MarginContainer" parent="HSplitContainer/VBoxContainer/GamesPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 6
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HSplitContainer/VBoxContainer/GamesPanel/VBoxContainer/SearchBar"]
+layout_mode = 2
+
+[node name="Search" type="LineEdit" parent="HSplitContainer/VBoxContainer/GamesPanel/VBoxContainer/SearchBar/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+caret_blink = true
+
+[node name="MarginContainer" type="MarginContainer" parent="HSplitContainer/VBoxContainer/GamesPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/VBoxContainer/GamesPanel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HSplitContainer/VBoxContainer/GamesPanel/VBoxContainer/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_bottom = 10
+
+[node name="GamesList" type="VBoxContainer" parent="HSplitContainer/VBoxContainer/GamesPanel/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="GameHeader" type="TextureRect" parent="HSplitContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 0
+expand_mode = 1
+stretch_mode = 6
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HSplitContainer/MarginContainer/ScrollContainer"]
+custom_minimum_size = Vector2(0, 1024)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/MarginContainer/ScrollContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="HSplitContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HSplitContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="InstallButton" type="Button" parent="HSplitContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_disabled_color = Color(0.533333, 0.537255, 0.54902, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_constants/h_separation = 8
+theme_override_styles/focus = SubResource("StyleBoxFlat_xsbs2")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_xsbs2")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_xsbs2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xsbs2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xsbs2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xsbs2")
+disabled = true
+text = "INSTALL"
+icon = ExtResource("6_cef0q")
+
+[node name="Spacer2" type="Control" parent="HSplitContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HSplitContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xsbs2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 48
+
+[node name="StorePageButton" type="Button" parent="HSplitContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(90, 32)
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.533333, 0.537255, 0.54902, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.533333, 0.537255, 0.54902, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.533333, 0.537255, 0.54902, 1)
+theme_override_colors/font_color = Color(0.533333, 0.537255, 0.54902, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxFlat_pkwv1")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ppso2")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_enc0q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_enc0q")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6fciu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1rgf4")
+text = "Store Page"
+
+[node name="DLCButton" type="Button" parent="HSplitContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(90, 32)
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.533333, 0.537255, 0.54902, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.533333, 0.537255, 0.54902, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.533333, 0.537255, 0.54902, 1)
+theme_override_colors/font_color = Color(0.533333, 0.537255, 0.54902, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxFlat_pkwv1")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ppso2")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_enc0q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_enc0q")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6fciu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1rgf4")
+text = "DLC"
+
+[node name="CommunityHubButton" type="Button" parent="HSplitContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(90, 32)
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.533333, 0.537255, 0.54902, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.533333, 0.537255, 0.54902, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.533333, 0.537255, 0.54902, 1)
+theme_override_colors/font_color = Color(0.533333, 0.537255, 0.54902, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxFlat_pkwv1")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ppso2")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_enc0q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_enc0q")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6fciu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1rgf4")
+text = "Community Hub"
+
+[node name="PointsShopButton" type="Button" parent="HSplitContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(90, 32)
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.533333, 0.537255, 0.54902, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.533333, 0.537255, 0.54902, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.533333, 0.537255, 0.54902, 1)
+theme_override_colors/font_color = Color(0.533333, 0.537255, 0.54902, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxFlat_pkwv1")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ppso2")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_enc0q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_enc0q")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6fciu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1rgf4")
+text = "Points Shop"
+
+[node name="DiscussionsButton" type="Button" parent="HSplitContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(90, 32)
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.533333, 0.537255, 0.54902, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.533333, 0.537255, 0.54902, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.533333, 0.537255, 0.54902, 1)
+theme_override_colors/font_color = Color(0.533333, 0.537255, 0.54902, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxFlat_pkwv1")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ppso2")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_enc0q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_enc0q")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6fciu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1rgf4")
+text = "Discussions"
+
+[node name="GuidesButton" type="Button" parent="HSplitContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(90, 32)
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.533333, 0.537255, 0.54902, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.533333, 0.537255, 0.54902, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.533333, 0.537255, 0.54902, 1)
+theme_override_colors/font_color = Color(0.533333, 0.537255, 0.54902, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxFlat_pkwv1")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ppso2")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_enc0q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_enc0q")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6fciu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1rgf4")
+text = "Guides"
+
+[node name="SupportButton" type="Button" parent="HSplitContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(90, 32)
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.533333, 0.537255, 0.54902, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.533333, 0.537255, 0.54902, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.533333, 0.537255, 0.54902, 1)
+theme_override_colors/font_color = Color(0.533333, 0.537255, 0.54902, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxFlat_pkwv1")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ppso2")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_enc0q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_enc0q")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6fciu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1rgf4")
+text = "Support"

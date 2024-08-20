@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://cuqw8kcpxc51b"]
+
+[ext_resource type="Script" path="res://main/category_button.gd" id="1_bbvp4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o7dt8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uwb0m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bhw2k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6srjl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uldul"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pef3s"]
+bg_color = Color(0.0980392, 0.584314, 1, 1)
+
+[node name="CategoryButton" type="Button"]
+theme_override_colors/font_color = Color(0.819608, 0.831373, 0.831373, 1)
+theme_override_colors/font_pressed_color = Color(0.0980392, 0.584314, 1, 1)
+theme_override_colors/font_hover_color = Color(0.819608, 0.831373, 0.831373, 1)
+theme_override_colors/font_focus_color = Color(0.819608, 0.831373, 0.831373, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.819608, 0.831373, 0.831373, 1)
+theme_override_colors/font_disabled_color = Color(0.819608, 0.831373, 0.831373, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_o7dt8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_uwb0m")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_bhw2k")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_6srjl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uldul")
+toggle_mode = true
+text = "STORE"
+script = ExtResource("1_bbvp4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(2.08165e-12, 2)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pef3s")
+
+[connection signal="toggled" from="." to="." method="_on_toggled"]
