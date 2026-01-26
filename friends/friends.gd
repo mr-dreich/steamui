@@ -75,18 +75,18 @@ func get_friends_icons() -> void:
 	request.use_threads = true
 	request.name = "FriendIconRequest"
 	add_child(request)
-
+	
 	var friends := Globals.get_friends()
 	for steamid in friends:
-		var friend: Dictionary = friends[steamid]
-		var icon_path := str(Globals.FriendsPath,str(friend.steamid),'.jpg')
+		var icon_path := str(Globals.FriendsPath,str(friends[steamid].steamid),'.jpg')
 		if not FileAccess.file_exists(icon_path):
 			request.request_completed.connect(_on_frend_icon_request_completed.bind(icon_path))
-			request.request_raw(friend.avatar)
+			request.request_raw(friends[steamid].avatar)
 			await request.request_completed
+			request.request_completed.disconnect(_on_frend_icon_request_completed)
 		
 		if FileAccess.file_exists(icon_path):
-			%Online.get_node(str(friend.steamid)).set_icon(icon_path)
+			%Online.get_node(str(friends[steamid].steamid)).set_icon(icon_path)
 		
 	request.queue_free()
 
@@ -104,8 +104,8 @@ func _ready() -> void:
 	%OfflineBox.custom_minimum_size.y = %Offline.size.y
 
 
-func _on_frend_icon_request_completed(_result, _response_code, _headers, body, path: String) -> void:
-	if not body.is_empty():
+func _on_frend_icon_request_completed(_result, response_code, _headers, body, path: String) -> void:
+	if response_code == 200 and not body.is_empty():
 		var image := Image.new()
 		var error := image.load_jpg_from_buffer(body)
 		if error == OK and not image.is_empty():

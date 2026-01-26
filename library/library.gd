@@ -28,6 +28,8 @@ func load_games() -> void:
 	
 	var btn_group := ButtonGroup.new()
 	for game in _games:
+		game['appid'] = str(int(game['appid']))
+		
 		if not int(game["appid"]) in [12230, 12240, 12250]:
 			var item := Globals.GameListItemScene.instantiate()
 			item.pressed.connect(_on_library_item_pressed)
@@ -81,8 +83,11 @@ func get_game_icon(game: Dictionary, icon_path: String) -> void:
 	
 	if not FileAccess.file_exists(icon_path):
 		request.request_completed.connect(_on_game_icon_request_completed.bind(icon_path))
-		var icon_url := str(game["appid"],"/",game["img_icon_url"],".jpg")
-		request.request_raw(str("http://media.steampowered.com/steamcommunity/public/images/apps/",icon_url))
+		# https://steamcdn-a.akamaihd.net/steamcommunity/public/images/apps/
+		# http://media.steampowered.com/steamcommunity/public/images/apps/
+		# https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/apps/
+		var icon_url := str("http://media.steampowered.com/steamcommunity/public/images/apps/",game["appid"],"/",game["img_icon_url"],".jpg")
+		request.request_raw(icon_url)
 		await request.request_completed
 	request.queue_free()
 	

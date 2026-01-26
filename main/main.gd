@@ -43,6 +43,7 @@ func _ready() -> void:
 		button.button_group = btn_group
 	
 	%Library.button_pressed = true
+	
 	%SteamLoading.play('default')
 
 
@@ -52,6 +53,7 @@ func _process(_delta: float) -> void:
 
 func _on_steam_initialized() -> void:
 	%Profile.text = str(Globals.get_username()).to_upper()
+	%LoadingPanel.hide()
 	load_friends()
 
 
@@ -88,6 +90,8 @@ func _on_friends_pressed() -> void:
 		_friends_window.always_on_top = false
 		_friends_window.min_size = Vector2i(180, 600)
 		_friends_window.size = Vector2i(280, 700)
+		_friends_window.content_scale_factor = 1.0 if DisplayServer.screen_get_dpi() < 120 else 2.0
+		_friends_window.size = _friends_window.size * _friends_window.content_scale_factor
 		add_child(_friends_window)
 		
 		_friends_window.add_child(Globals.Friends.instantiate())

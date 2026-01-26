@@ -50,16 +50,24 @@ func get_icon() -> ImageTexture:
 
 
 func initialize_steam() -> void:
-	var initialize := Steam.steamInit(true, 480)
+	var initialize := Steam.steamInitEx(480)
 	#print("Did Steam initialize?: %s " % initialize)
-	if initialize.status == 1:
-		OS.set_environment('SteamAppId', str(480))
-		OS.set_environment('SteamGameId', str(480))
+	if initialize.status == 0:
+		#OS.set_environment('SteamAppId', str(480))
+		#OS.set_environment('SteamGameId', str(480))
 		_id = Steam.getSteamID()
 		_username = Steam.getPersonaName()
 		Steam.getPlayerAvatar()
 		await get_tree().process_frame
 		steam_initialized.emit()
+
+
+func update_ui_scale() -> void:
+	var screen_scale := 1.0 if DisplayServer.screen_get_dpi() < 120 else 2.0
+	if OS.get_name() != 'Web':
+		get_window().size = get_window().size * screen_scale
+		get_window().move_to_center()
+	get_window().content_scale_factor = screen_scale
 
 
 func _ready() -> void:
@@ -72,6 +80,8 @@ func _ready() -> void:
 	if not DirAccess.dir_exists_absolute(FriendsPath):
 		DirAccess.make_dir_recursive_absolute(FriendsPath)
 	Steam.avatar_loaded.connect(_on_loaded_avatar)
+	
+	update_ui_scale()
 	initialize_steam()
 
 

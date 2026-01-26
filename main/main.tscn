@@ -1,7 +1,7 @@
 [gd_scene load_steps=88 format=3 uid="uid://drm3wt8hnh5k"]
 
 [ext_resource type="Theme" uid="uid://bhc7mnvblc0xa" path="res://theme.tres" id="1_eci32"]
-[ext_resource type="Script" path="res://main/main.gd" id="1_wh76g"]
+[ext_resource type="Script" uid="uid://b7f3bubvvt53g" path="res://main/main.gd" id="1_wh76g"]
 [ext_resource type="Texture2D" uid="uid://dtk6dkpnjmtgt" path="res://textures/backward.png" id="2_q1mew"]
 [ext_resource type="Texture2D" uid="uid://oyp8onh085xw" path="res://textures/forward.png" id="3_guj0x"]
 [ext_resource type="PackedScene" uid="uid://cuqw8kcpxc51b" path="res://main/category_button.tscn" id="5_6acpg"]
@@ -14,19 +14,19 @@
 [ext_resource type="Texture2D" uid="uid://dkg1lmgtb7m3" path="res://textures/friends.png" id="12_fvr42"]
 [ext_resource type="Texture2D" uid="uid://cyopni1w28qxi" path="res://textures/loading.png" id="13_4t7fr"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wefri"]
-content_margin_left = 26.0
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gsdnw"]
-content_margin_left = 26.0
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l1ttc"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6n2ga"]
 content_margin_left = 26.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rdksf"]
 content_margin_left = 26.0
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6n2ga"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l1ttc"]
+content_margin_left = 26.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gsdnw"]
+content_margin_left = 26.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wefri"]
 content_margin_left = 26.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h648p"]
@@ -478,15 +478,15 @@ animations = [{
 "speed": 30.0
 }]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iq2ws"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hewsi"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kyrva"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q8ou4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j0v1t"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q8ou4"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kyrva"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hewsi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iq2ws"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -598,18 +598,18 @@ layout_mode = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(116, 2.08165e-12)
 layout_mode = 2
-theme_override_colors/font_disabled_color = Color(0.498039, 0.52549, 0.556863, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.498039, 0.52549, 0.556863, 1)
-theme_override_colors/font_hover_color = Color(0.807025, 0.851507, 0.902344, 1)
-theme_override_colors/font_pressed_color = Color(0.807843, 0.85098, 0.901961, 1)
-theme_override_colors/font_focus_color = Color(0.498039, 0.52549, 0.556863, 1)
 theme_override_colors/font_color = Color(0.498039, 0.52549, 0.556863, 1)
+theme_override_colors/font_focus_color = Color(0.498039, 0.52549, 0.556863, 1)
+theme_override_colors/font_pressed_color = Color(0.807843, 0.85098, 0.901961, 1)
+theme_override_colors/font_hover_color = Color(0.807025, 0.851507, 0.902344, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.498039, 0.52549, 0.556863, 1)
+theme_override_colors/font_disabled_color = Color(0.498039, 0.52549, 0.556863, 1)
 theme_override_font_sizes/font_size = 12
-theme_override_styles/focus = SubResource("StyleBoxEmpty_wefri")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_gsdnw")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_l1ttc")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_rdksf")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_6n2ga")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rdksf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_l1ttc")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gsdnw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wefri")
 disabled = true
 text = "Add a Game"
 alignment = 0
@@ -642,18 +642,18 @@ alignment = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(116, 2.08165e-12)
 layout_mode = 2
-theme_override_colors/font_disabled_color = Color(0.498039, 0.52549, 0.556863, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.498039, 0.52549, 0.556863, 1)
-theme_override_colors/font_hover_color = Color(0.807025, 0.851507, 0.902344, 1)
-theme_override_colors/font_pressed_color = Color(0.807843, 0.85098, 0.901961, 1)
-theme_override_colors/font_focus_color = Color(0.498039, 0.52549, 0.556863, 1)
 theme_override_colors/font_color = Color(0.498039, 0.52549, 0.556863, 1)
+theme_override_colors/font_focus_color = Color(0.498039, 0.52549, 0.556863, 1)
+theme_override_colors/font_pressed_color = Color(0.807843, 0.85098, 0.901961, 1)
+theme_override_colors/font_hover_color = Color(0.807025, 0.851507, 0.902344, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.498039, 0.52549, 0.556863, 1)
+theme_override_colors/font_disabled_color = Color(0.498039, 0.52549, 0.556863, 1)
 theme_override_font_sizes/font_size = 12
-theme_override_styles/focus = SubResource("StyleBoxEmpty_wefri")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_gsdnw")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_l1ttc")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_rdksf")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_6n2ga")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rdksf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_l1ttc")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gsdnw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wefri")
 disabled = true
 text = "Manage Downloads"
 alignment = 0
@@ -696,18 +696,18 @@ centered = false
 unique_name_in_owner = true
 custom_minimum_size = Vector2(110, 2.08165e-12)
 layout_mode = 2
-theme_override_colors/font_disabled_color = Color(0.498039, 0.52549, 0.556863, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.498039, 0.52549, 0.556863, 1)
-theme_override_colors/font_hover_color = Color(0.807025, 0.851507, 0.902344, 1)
-theme_override_colors/font_pressed_color = Color(0.807843, 0.85098, 0.901961, 1)
-theme_override_colors/font_focus_color = Color(0.498039, 0.52549, 0.556863, 1)
 theme_override_colors/font_color = Color(0.498039, 0.52549, 0.556863, 1)
+theme_override_colors/font_focus_color = Color(0.498039, 0.52549, 0.556863, 1)
+theme_override_colors/font_pressed_color = Color(0.807843, 0.85098, 0.901961, 1)
+theme_override_colors/font_hover_color = Color(0.807025, 0.851507, 0.902344, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.498039, 0.52549, 0.556863, 1)
+theme_override_colors/font_disabled_color = Color(0.498039, 0.52549, 0.556863, 1)
 theme_override_font_sizes/font_size = 12
-theme_override_styles/focus = SubResource("StyleBoxEmpty_iq2ws")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_hewsi")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_kyrva")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_j0v1t")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_q8ou4")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_j0v1t")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_kyrva")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_hewsi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_iq2ws")
 disabled = true
 text = "Friends & Chat"
 alignment = 0
